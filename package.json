@@ -1,7 +1,7 @@
 {
   "name": "com.vulpes.transitions",
   "displayName": "Vulpes Transitions",
-  "version": "0.9.0-preview.1",
+  "version": "1.0.0",
   "unity": "2021.2",
   "description": "A Promise driven Transition system for Unity.",
   "keywords": [
@@ -17,7 +17,7 @@
   "dependencies": {
     "com.unity.ugui": "1.0.0",
     "com.unity.textmeshpro": "2.0.1",
-    "com.vulpes.promises": "1.1.0"
+    "com.vulpes.promises": "2.0.0"
   },
   "unityRelease": "0f1"
 }
