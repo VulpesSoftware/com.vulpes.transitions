@@ -10,13 +10,7 @@ namespace Vulpes.Transitions
     {
         [SerializeField] private Transform targetTransform = default;
 
-        public override Vector3 Current
-        {
-            get
-            {
-                return targetTransform.localScale;
-            }
-        }
+        public override Vector3 Current => targetTransform.localScale;
 
         public override void Initialize()
         {
@@ -26,19 +20,7 @@ namespace Vulpes.Transitions
             }
         }
 
-        protected override void OnTransitionStart()
-        {
-
-        }
-
         protected override void OnTransitionUpdate(in float time)
-        {
-            targetTransform.localScale = Vector3.LerpUnclamped(start, end, time);
-        }
-
-        protected override void OnTransitionEnd()
-        {
-
-        }
+            => targetTransform.localScale = Vector3.LerpUnclamped(start, end, time);
     }
 }

@@ -10,15 +10,9 @@ namespace Vulpes.Transitions
     public sealed class Transition_GraphicColor : Transition
     {
         [SerializeField] private Graphic targetGraphic = default;
-        [SerializeField] private Gradient color = new Gradient();
+        [SerializeField] private Gradient color = new();
 
-        public Color Current
-        {
-            get
-            {
-                return targetGraphic.color;
-            }
-        }
+        public Color Current => targetGraphic.color;
 
         public override void Initialize()
         {
@@ -28,19 +22,7 @@ namespace Vulpes.Transitions
             }
         }
 
-        protected override void OnTransitionStart()
-        {
-
-        }
-
         protected override void OnTransitionUpdate(in float time)
-        {
-            targetGraphic.color = color.Evaluate(time);
-        }
-
-        protected override void OnTransitionEnd()
-        {
-
-        }
+            => targetGraphic.color = color.Evaluate(time);
     }
 }

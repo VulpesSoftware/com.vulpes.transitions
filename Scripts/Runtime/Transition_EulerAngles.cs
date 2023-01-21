@@ -11,13 +11,7 @@ namespace Vulpes.Transitions
         [SerializeField] private Transform targetTransform = default;
         [SerializeField] private bool useLocalSpace = false;
 
-        public override Vector3 Current
-        {
-            get
-            {
-                return useLocalSpace ? transform.localEulerAngles : targetTransform.eulerAngles;
-            }
-        }
+        public override Vector3 Current => useLocalSpace ? transform.localEulerAngles : targetTransform.eulerAngles;
 
         public override void Initialize()
         {
@@ -26,8 +20,6 @@ namespace Vulpes.Transitions
                 targetTransform = transform;
             }
         }
-
-        protected override void OnTransitionStart() { }
 
         protected override void OnTransitionUpdate(in float time)
         {
@@ -39,7 +31,5 @@ namespace Vulpes.Transitions
                 targetTransform.eulerAngles = Vector3.LerpUnclamped(start, end, time);
             }
         }
-
-        protected override void OnTransitionEnd() { }
     }
 }

@@ -17,10 +17,7 @@ namespace Vulpes.Transitions
 
         public override Vector2 Start
         {
-            get
-            {
-                return startPosition;
-            }
+            get => startPosition;
             set
             {
                 start = value;
@@ -30,10 +27,7 @@ namespace Vulpes.Transitions
 
         public override Vector2 End
         {
-            get
-            {
-                return endPosition;
-            }
+            get => endPosition;
             set
             {
                 end = value;
@@ -41,13 +35,7 @@ namespace Vulpes.Transitions
             }
         }
 
-        public override Vector2 Current
-        {
-            get
-            {
-                return rectTransform.anchoredPosition;
-            }
-        }
+        public override Vector2 Current => rectTransform.anchoredPosition;
 
         public override void Initialize()
         {
@@ -60,13 +48,7 @@ namespace Vulpes.Transitions
             endPosition = useViewportSpace ? Vector2.Scale(end, new Vector2(Screen.width, Screen.height)) + initialOffset : end;
         }
 
-        protected override void OnTransitionStart() { }
-
         protected override void OnTransitionUpdate(in float time)
-        {
-            rectTransform.anchoredPosition = Vector2.LerpUnclamped(startPosition, endPosition, time);
-        }
-
-        protected override void OnTransitionEnd() { }
+            => rectTransform.anchoredPosition = Vector2.LerpUnclamped(startPosition, endPosition, time);
     }
 }

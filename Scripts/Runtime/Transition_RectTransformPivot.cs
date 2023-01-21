@@ -12,35 +12,17 @@ namespace Vulpes.Transitions
 
         public override Vector2 Start
         {
-            get
-            {
-                return start;
-            }
-            set
-            {
-                start = value;
-            }
+            get => start;
+            set => start = value;
         }
 
         public override Vector2 End
         {
-            get
-            {
-                return end;
-            }
-            set
-            {
-                end = value;
-            }
+            get => end;
+            set => end = value;
         }
 
-        public override Vector2 Current
-        {
-            get
-            {
-                return rectTransform.pivot;
-            }
-        }
+        public override Vector2 Current => rectTransform.pivot;
 
         public override void Initialize()
         {
@@ -50,13 +32,7 @@ namespace Vulpes.Transitions
             }
         }
 
-        protected override void OnTransitionStart() { }
-
         protected override void OnTransitionUpdate(in float time)
-        {
-            rectTransform.pivot = Vector2.LerpUnclamped(start, end, time);
-        }
-
-        protected override void OnTransitionEnd() { }
+            => rectTransform.pivot = Vector2.LerpUnclamped(start, end, time);
     }
 }

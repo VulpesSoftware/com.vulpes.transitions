@@ -10,13 +10,7 @@ namespace Vulpes.Transitions
     {
         [SerializeField] private RectTransform rectTransform = default;
 
-        public override Vector2 Current
-        {
-            get
-            {
-                return rectTransform.sizeDelta;
-            }
-        }
+        public override Vector2 Current => rectTransform.sizeDelta;
 
         public override void Initialize()
         {
@@ -26,19 +20,7 @@ namespace Vulpes.Transitions
             }
         }
 
-        protected override void OnTransitionStart()
-        {
-            
-        }
-
-        protected override void OnTransitionUpdate(in float time)
-        {
-            rectTransform.sizeDelta = Vector2.LerpUnclamped(start, end, time);
-        }
-
-        protected override void OnTransitionEnd()
-        {
-
-        }
+        protected override void OnTransitionUpdate(in float time) 
+            => rectTransform.sizeDelta = Vector2.LerpUnclamped(start, end, time);
     }
 }

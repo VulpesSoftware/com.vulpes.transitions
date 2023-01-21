@@ -35,12 +35,6 @@ namespace Vulpes.Transitions
             }
         }
 
-        protected override void OnTransitionStart() { }
-
-        protected override void OnTransitionUpdate(in float time) { }
-
-        protected override void OnTransitionEnd() { }
-
         private void StartTransition()
         {
             if (Mode == TransitionMode.Forward)

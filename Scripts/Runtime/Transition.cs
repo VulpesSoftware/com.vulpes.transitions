@@ -134,13 +134,13 @@ namespace Vulpes.Transitions
             }
         }
 
-        public abstract void Initialize();
+        public virtual void Initialize() { }
 
-        protected abstract void OnTransitionStart();
+        protected virtual void OnTransitionStart() { }
 
-        protected abstract void OnTransitionUpdate(in float time);
+        protected virtual void OnTransitionUpdate(in float time) { }
 
-        protected abstract void OnTransitionEnd();
+        protected virtual void OnTransitionEnd() { }
 
         /// <summary>
         /// Plays the <see cref="Transition"/> in the specified direction and returns a <see cref="Promise"/> 

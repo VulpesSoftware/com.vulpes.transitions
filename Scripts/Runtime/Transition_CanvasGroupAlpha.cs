@@ -14,12 +14,7 @@ namespace Vulpes.Transitions
         [SerializeField] private bool blocksRaycasts = true;
 
         public override float Current
-        {
-            get
-            {
-                return canvasGroup.alpha;
-            }
-        }
+            => canvasGroup.alpha;
 
         public override void Initialize()
         {
@@ -45,9 +40,7 @@ namespace Vulpes.Transitions
         }
 
         protected override void OnTransitionUpdate(in float time)
-        {
-            canvasGroup.alpha = Mathf.LerpUnclamped(start, end, time);
-        }
+            => canvasGroup.alpha = Mathf.LerpUnclamped(start, end, time);
 
         protected override void OnTransitionEnd()
         {

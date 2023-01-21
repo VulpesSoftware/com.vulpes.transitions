@@ -12,12 +12,7 @@ namespace Vulpes.Transitions
         [SerializeField] private bool useLocalSpace = false;
 
         public override Vector3 Current
-        {
-            get
-            {
-                return useLocalSpace ? transform.localPosition : targetTransform.position;
-            }
-        }
+            => useLocalSpace ? transform.localPosition : targetTransform.position;
 
         public override void Initialize()
         {
@@ -25,11 +20,6 @@ namespace Vulpes.Transitions
             {
                 targetTransform = transform;
             }
-        }
-
-        protected override void OnTransitionStart()
-        {
-
         }
 
         protected override void OnTransitionUpdate(in float time)
@@ -41,11 +31,6 @@ namespace Vulpes.Transitions
             {
                 targetTransform.position = Vector3.LerpUnclamped(start, end, time);
             }
-        }
-
-        protected override void OnTransitionEnd()
-        {
-
         }
     }
 }
