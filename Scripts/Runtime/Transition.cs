@@ -117,6 +117,10 @@ namespace Vulpes.Transitions
         protected void Awake()
         {
             Initialize();
+            if (IsPlaying)
+            {
+                return;
+            }
             if (flags.HasFlag(TransitionFlags.ResetOnInitialize))
             {
                 OnTransitionUpdate(0.0f);
