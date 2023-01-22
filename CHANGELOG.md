@@ -4,6 +4,14 @@ All notable changes to this package will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.0.2] - 2023-01-22
+### Changed
+- Updated Promises Package dependency from 2.1.0 to 2.1.1.
+- Removed 'Everything' flag from code because it was causing serialization problems.
+
+### Fixed
+- Fixed issue where Transition could end immediately upon starting for the first time if GameObject was inactive prior to calling 'Play'.
+
 ## [1.0.1] - 2023-01-21
 ### Changed
 - Cleaned up the code.
