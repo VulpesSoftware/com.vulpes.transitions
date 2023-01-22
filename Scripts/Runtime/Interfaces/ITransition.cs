@@ -13,7 +13,6 @@ namespace Vulpes.Transitions
     [Flags]
     public enum TransitionFlags : int
     {
-        Everything = -1,
         /// <summary>Resets the transition to the begining at startup.</summary>
         ResetOnInitialize = 1 << 0,
         /// <summary>Resets the transition before playing.</summary>

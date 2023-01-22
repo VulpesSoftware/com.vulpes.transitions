@@ -42,7 +42,7 @@ namespace Vulpes.Transitions
         [SerializeField, Min(0.0f)] protected float delay = 0.0f;
         [SerializeField] protected AnimationCurve forwardCurve = AnimationCurve.Linear(0.0f, 0.0f, 1.0f, 1.0f);
         [SerializeField] protected AnimationCurve reverseCurve = AnimationCurve.Linear(0.0f, 0.0f, 1.0f, 1.0f);
-        [SerializeField] protected TransitionFlags flags = TransitionFlags.Everything;
+        [SerializeField] protected TransitionFlags flags = TransitionFlags.ResetOnInitialize | TransitionFlags.ResetOnPlay | TransitionFlags.DisableWhenDone;
 
         protected Coroutine transitionRoutine;
         protected IPromise transitionPromise;
