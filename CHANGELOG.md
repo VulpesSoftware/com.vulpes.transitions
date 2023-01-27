@@ -4,6 +4,15 @@ All notable changes to this package will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.0.3] - 2023-01-27
+### Changed
+- 'Transition_CanvasGroupAlpha' now has its 'start' and 'end' values clamped between 0.0 and 1.0.
+- 'TransitionGroup' now displays the total duration of the group including its 'delay' in its 'duration' field in the inspector.
+- Removed Text Mesh Pro Package as a dependency.
+
+### Added
+- Added Documentation.
+
 ## [1.0.2] - 2023-01-22
 ### Changed
 - Updated Promises Package dependency from 2.1.0 to 2.1.1.
