@@ -47,5 +47,11 @@ namespace Vulpes.Transitions
             canvasGroup.blocksRaycasts = Mode == TransitionMode.Forward && blocksRaycasts;
             canvasGroup.interactable = Mode == TransitionMode.Forward && interactable;
         }
+
+        private void OnValidate()
+        {
+            start = Mathf.Clamp01(start);
+            end = Mathf.Clamp01(end);
+        }
     }
 }
