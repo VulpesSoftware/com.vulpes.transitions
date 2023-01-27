@@ -138,5 +138,8 @@ namespace Vulpes.Transitions
                 EndTransition();
             }
         }
+
+        private void OnValidate()
+            => duration = TotalDuration;
     }
 }
