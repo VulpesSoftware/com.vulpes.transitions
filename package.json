@@ -1,7 +1,7 @@
 {
   "name": "com.vulpes.transitions",
   "displayName": "Vulpes Transitions",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "unity": "2021.3",
   "description": "The Vulpes Transitions package is a Promise driven transition system that provides a number of components that can be used as a substitute for common animations such as moving a Transform between two points or fading a CanvasGroup in or out.",
   "keywords": [
