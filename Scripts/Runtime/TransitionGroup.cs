@@ -9,15 +9,23 @@ namespace Vulpes.Transitions
     [AddComponentMenu("Vulpes/Transitions/Transition Group"), DefaultExecutionOrder(100)]
     public sealed class TransitionGroup : Transition
     {
-        [SerializeField] private Transition[] transitions = default;
+        [SerializeField] private Transition[] transitions = new Transition[0];
 
         public override float Duration
         {
             get
             {
                 duration = 0.0f;
+                if (transitions == null || transitions.Length == 0)
+                {
+                    return duration;
+                }
                 for (int i = 0; i < transitions.Length; i++)
                 {
+                    if (transitions[i] == null)
+                    {
+                        continue;
+                    }
                     duration = Mathf.Max(duration, transitions[i].TotalDuration);
                 }
                 return duration;
