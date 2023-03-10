@@ -147,7 +147,9 @@ namespace Vulpes.Transitions
             }
         }
 
+#if UNITY_EDITOR
         private void OnValidate()
             => duration = TotalDuration;
+#endif
     }
 }
