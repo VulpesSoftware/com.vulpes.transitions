@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using Vulpes.Promises;
 
 namespace Vulpes.Transitions
@@ -43,6 +44,9 @@ namespace Vulpes.Transitions
         [SerializeField] protected AnimationCurve forwardCurve = AnimationCurve.Linear(0.0f, 0.0f, 1.0f, 1.0f);
         [SerializeField] protected AnimationCurve reverseCurve = AnimationCurve.Linear(0.0f, 0.0f, 1.0f, 1.0f);
         [SerializeField] protected TransitionFlags flags = TransitionFlags.ResetOnInitialize | TransitionFlags.ResetOnPlay | TransitionFlags.DisableWhenDone;
+
+        public UnityEvent<TransitionMode> onTransitionStarted = new();
+        public UnityEvent<TransitionMode> onTransitionEnded = new();
 
         protected Coroutine transitionRoutine;
         protected IPromise transitionPromise;
@@ -213,6 +217,8 @@ namespace Vulpes.Transitions
 
             OnTransitionStart();
 
+            onTransitionStarted?.Invoke(Mode);
+
             if (Instant)
             {
                 OnTransitionUpdate(Mode == TransitionMode.Forward ? 1.0f : 0.0f);
@@ -240,6 +246,7 @@ namespace Vulpes.Transitions
             IsPlaying = false;
             CurrentTime = Mode == TransitionMode.Forward ? 1.0f : 0.0f;
             OnTransitionEnd();
+            onTransitionEnded?.Invoke(Mode);
             transitionPromise.Resolve();
 
             if (flags.HasFlag(TransitionFlags.DisableWhenDone) && Mode == TransitionMode.Reverse)

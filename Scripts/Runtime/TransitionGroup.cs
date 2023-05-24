@@ -52,6 +52,8 @@ namespace Vulpes.Transitions
 
             OnTransitionStart();
 
+            onTransitionStarted?.Invoke(Mode);
+
             int i;
 
             if (Instant)
@@ -93,6 +95,7 @@ namespace Vulpes.Transitions
         {
             IsPlaying = false;
             OnTransitionEnd();
+            onTransitionEnded?.Invoke(Mode);
             transitionPromise.Resolve();
             if (Mode == TransitionMode.Reverse)
             {
